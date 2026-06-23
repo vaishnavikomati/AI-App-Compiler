@@ -1,13 +1,10 @@
 def generate_schema(design):
 
-    return {
-        "tables": [
-            "users",
-            "tasks"
-        ],
+    tables = []
 
-        "api_routes": [
-            "/users",
-            "/tasks"
-        ]
+    for entity in design["entities"]:
+        tables.append(entity.lower() + "s")
+
+    return {
+        "tables": tables
     }
